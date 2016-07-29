@@ -19,7 +19,7 @@ public class LazyInstanceStorage {
 
     public LazyInstanceStorage(Collection<LazyInstance> instances) {
         for (LazyInstance lazyInstance : instances) {
-            initializers.put(lazyInstance.getClazz(), lazyInstance);
+            initializers.put(lazyInstance.getTargetClass(), lazyInstance);
         }
     }
 

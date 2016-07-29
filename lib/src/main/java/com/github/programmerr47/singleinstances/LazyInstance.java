@@ -11,7 +11,7 @@ public abstract class LazyInstance<T> {
         this.clazz = clazz;
     }
 
-    public Class<T> getClazz() {
+    public Class<T> getTargetClass() {
         return clazz;
     }
 
