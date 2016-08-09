@@ -17,7 +17,7 @@ public class LazyInstanceStorage {
         this(Arrays.asList(instances));
     }
 
-    public LazyInstanceStorage(Collection<LazyInstance> instances) {
+    public LazyInstanceStorage(Collection<? extends LazyInstance> instances) {
         for (LazyInstance lazyInstance : instances) {
             initializers.put(lazyInstance.getTargetClass(), lazyInstance);
         }

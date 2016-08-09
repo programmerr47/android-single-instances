@@ -14,11 +14,11 @@ public abstract class LazySingletonApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        List<LazyInstance> lazyInstances = initAllLazyInstances();
+        List<? extends LazyInstance> lazyInstances = initAllLazyInstances();
         storage = new LazyInstanceStorage(lazyInstances);
     }
 
-    protected abstract List<LazyInstance> initAllLazyInstances();
+    protected abstract List<? extends LazyInstance> initAllLazyInstances();
 
     public static <T> T getGlobal(Class<T> clazz) {
         return storage.get(clazz);
