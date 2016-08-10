@@ -32,8 +32,8 @@ public class InstanceStorage {
     }
 
     public static final class HierarchyLink {
-        private final Object instance;
-        private final Class linkedClass;
+        final Object instance;
+        final Class linkedClass;
 
         public HierarchyLink(Object instance, Class linkedClass) {
             if (!linkedClass.isInstance(instance)) {
