@@ -24,4 +24,38 @@ public class Utils {
 
         return storageMap;
     }
+
+    static Map<Class, Object> getLazyStorageMap(LazyInstanceStorage instanceStorage) {
+        Map<Class, Object> storageMap = null;
+
+        try {
+            Class instanceStorageClass = instanceStorage.getClass();
+            Field containerField = instanceStorageClass.getDeclaredField("singleInstances");
+            containerField.setAccessible(true);
+            storageMap = (Map<Class, Object>) containerField.get(instanceStorage);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        return storageMap;
+    }
+
+    static Map<Class, LazyInstance> getLazyInitializers(LazyInstanceStorage instanceStorage) {
+        Map<Class, LazyInstance> storageMap = null;
+
+        try {
+            Class instanceStorageClass = instanceStorage.getClass();
+            Field containerField = instanceStorageClass.getDeclaredField("initializers");
+            containerField.setAccessible(true);
+            storageMap = (Map<Class, LazyInstance>) containerField.get(instanceStorage);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        return storageMap;
+    }
 }
