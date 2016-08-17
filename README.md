@@ -6,7 +6,7 @@ More info you can find [here](https://medium.com/@programmerr47/single-instances
 ## How to use it
 ### Gradle
 ```java
-    compile 'com.github.programmerr47:single-instances:1.0.0'
+compile 'com.github.programmerr47:single-instances:1.0.0'
 ```
 
 ### Maven
